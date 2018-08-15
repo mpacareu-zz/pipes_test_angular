@@ -13,24 +13,24 @@
         </thead>
         <tbody>
             <tr>
-                <th>{{nombre}}</th>
+                <th>{{name}}</th>
                 <td>uppercase</td>
-                <td>{{nombre|uppercase}}</td>
+                <td>{{name|uppercase}}</td>
             </tr>
             <tr>
-                <th>{{nombre}}</th>
+                <th>{{name}}</th>
                 <td>lowercase</td>
-                <td>{{nombre|lowercase}}</td>
+                <td>{{name|lowercase}}</td>
             </tr>
             <tr>
-                <th>{{nombre}}</th>
+                <th>{{name}}</th>
                 <td>slice:3</td>
-                <td>{{nombre|slice:3}}</td>
+                <td>{{name|slice:3}}</td>
             </tr>
             <tr>
-                <th>{{nombre}}</th>
+                <th>{{name}}</th>
                 <td>slice:0:3</td>
-                <td>{{nombre|slice:0:3}}</td>
+                <td>{{name|slice:0:3}}</td>
             </tr>
             <tr>
                 <th>{{array}}</th>
@@ -90,11 +90,67 @@
                 <td>number: '.2-2'</td>
                 <td>{{money| number: '.2-2'}}</td>
             </tr>
+            <tr>
+                <th>{{valueOfPromise}}</th>
+                <td>async</td>
+                <td>{{valueOfPromise|async}}</td>
+            </tr>
+            <tr>
+                <th>{{date}}</th>
+                <td>date</td>
+                <td>{{date|date}}</td>
+            </tr>
+            <tr>
+                <th>{{date}}</th>
+                <td>date: 'medium'</td>
+                <td>{{date|date: 'medium'}}</td>
+            </tr>
+            <tr>
+                <th>{{date}}</th>
+                <td>date: 'MMMM - dd'</td>
+                <td>{{date|date: 'MMMM - dd'|titlecase}}</td>
+            </tr>
+            <tr>
+                <th>{{fullName}}</th>
+                <td>capitalize</td>
+                <td>{{fullName|capitalize}}</td>
+            </tr>
+            <tr>
+                <th>{{fullName}}</th>
+                <td>capitalize</td>
+                <td>{{fullName|capitalize:false}}</td>
+            </tr>
+            <tr>
+                <th>{{fullName}}</th>
+                <td>titlecase</td>
+                <td>{{fullName|titlecase}}</td>
+            </tr>
+            <tr>
+                <th>{{name}}</th>
+                <td>password: {{active}}
+                    <br>
+                    <button (click)="active = !active" type="button" class="btn btn-outline-primary"> Activar/ Desactivar</button>
+                </td>
+                <td>{{name|password: active}}</td>
+            </tr>
         </tbody>
     </table>
     <h4>Slice</h4>
     <ul>
         <li *ngFor="let item of array|slice: 5: 20">{{item}}</li>
     </ul>
+
+    <h4>JSON</h4>
+    <pre>
+        {{heroe|json}}
+    </pre>
+
+    <h4>Youtube <small>video</small></h4>
+    <hr>
+    <!-- <iframe width="560" height="315" src="{{url}}" frameborder="0" allowfullscreen>
+    </iframe> -->
+    <iframe width="560" height="315" [src]="video| domsave: 'https://www.youtube.com/embed/'" frameborder=" 0 " allowfullscreen></iframe>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/MD246ViCD3s" frameborder="0" allowfullscreen></iframe> -->
+
 
 </div>
